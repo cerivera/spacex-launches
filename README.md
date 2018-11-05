@@ -28,8 +28,10 @@ This app runs entirely on the client, but it uses Docker to start a local server
 
 ### Build Assets
 ```
-(host) $ docker run -it --rm -v $(pwd):/app spacex:latest yarn build
+(host) $ docker run -it --rm -v $(pwd):/app -e "PUBLIC_URL=https://apps.cerivera.com/spacex" spacex:latest yarn build
 ```
+
+Then upload contents in `/build` into the S3 bucket
 
 ## Managing Dependencies <a name="managing-dependencies"></a>
 
