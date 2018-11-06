@@ -3,15 +3,26 @@ import React from 'react';
 
 const padNum = (num) => num.toString().padStart(2, '0')
 
-const CalendarLink = (props) => {
-  const {title, date, description} = props
-  const encodedTitle = encodeURIComponent(title);
-  const encodedDescription = encodeURIComponent(description)
+const getEventDates = (dateStr) => {
   // Oh ya I did.  Formatting these dates the "right" way was awful.
-  const startDate = date.replace(/\.\d\d\d/, '').replace(/[-:.]*/g, '')
-  // Add three hours to start date.  Sounds good to me!
-  const endDate = startDate.replace(/T(\d\d)/, (_, m1) => `T${padNum(parseInt(m1)+3)}`)
-  const link = `http://www.google.com/calendar/event?action=TEMPLATE&text=${encodedTitle}&dates=${startDate}/${endDate}&details=${encodedDescription}`
+  const startDate = dateStr.replace(/\.\d\d\d/, '').replace(/[-:.]*/g, '')
+  // Add two hours to start date.  Sounds good to me!
+  const endDate = startDate.replace(/T(\d\d)/, (_, m1) => {
+    return `T${padNum(parseInt(m1)+2)}`
+  })
+
+  return `${startDate}/${endDate}`
+}
+
+const CalendarLink = (props) => {
+  const {date, description, location, title} = props;
+
+  const dates = getEventDates(date);
+  const encodedDescription = encodeURIComponent(description);
+  const encodedLocation = encodeURIComponent(location);
+  const encodedTitle = encodeURIComponent(title);
+
+  const link = `http://www.google.com/calendar/event?action=TEMPLATE&text=${encodedTitle}&dates=${dates}&details=${encodedDescription}&location=${encodedLocation}`;
 
   return (
     <a href={link.trim()} target="_blank" rel="noopener noreferrer">Add to Calendar</a>

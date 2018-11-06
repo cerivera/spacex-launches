@@ -21,6 +21,7 @@ class LaunchesRow extends React.Component {
                 title={`SpaceX Launch - ${item.mission_name}`}
                 description="https://apps.cerivera.com/spacex"
                 date={item.launch_date_utc}
+                location={item.launch_site.site_name_long}
               />
             : null}
           {links.reddit_campaign
