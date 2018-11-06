@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
+import UpcomingLaunches from './UpcomingLaunches'
+import PreviousLaunches from './PreviousLaunches'
+import PropType from 'prop-types';
+import React, { Component } from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import PropType from 'prop-types';
-//import './App.css';
 
 const styles = {
   root: {
@@ -24,6 +25,8 @@ class App extends Component {
             </Typography>
           </Toolbar>
         </AppBar>
+        <UpcomingLaunches />
+        <PreviousLaunches />
       </div>
     );
   }
