@@ -4,7 +4,7 @@ Track previous and upcoming SpaceX launches.
 
 ### Table of Contents
 * [Local Development Setup](#local-setup)
-* [Deploy to Production](#deploy-prod)
+* [Build Production Assets](#deploy-prod)
 * [Managing Dependencies](#managing-dependencies)
 * [Tests](#tests)
 
@@ -22,16 +22,13 @@ This app runs entirely on the client, but it uses Docker to start a local server
 
 ### Start the Container
 
-`$ docker run -it -p 3000:3000 -p 35729:35729 -v $(pwd):/app spacex:latest`
+`$ docker run -it --rm -p 3000:3000 -p 35729:35729 -v $(pwd):/app spacex:latest`
 
-## Deploy to Production <a name="deploy-prod"></a>
+## Build Production Assets <a name="deploy-prod"></a>
 
-### Build Assets
 ```
 (host) $ docker run -it --rm -v $(pwd):/app -e "PUBLIC_URL=https://apps.cerivera.com/spacex" spacex:latest yarn build
 ```
-
-Then upload contents in `/build` into the S3 bucket
 
 ## Managing Dependencies <a name="managing-dependencies"></a>
 
