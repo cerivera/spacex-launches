@@ -25,7 +25,7 @@ const CalendarLink = (props) => {
   const link = `http://www.google.com/calendar/event?action=TEMPLATE&text=${encodedTitle}&dates=${dates}&details=${encodedDescription}&location=${encodedLocation}`;
 
   return (
-    <a href={link.trim()} target="_blank" rel="noopener noreferrer">Add to Calendar</a>
+    <a href={link.trim()} target="_blank" rel="noopener noreferrer">ADD TO CALENDAR</a>
   )
 };
 
