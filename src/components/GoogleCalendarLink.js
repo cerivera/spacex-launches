@@ -24,9 +24,10 @@ const GoogleCalendarLink = (props) => {
   return (
     <Button
       size="small"
-      color="secondary"
+      variant="outlined"
+      color="default"
       href={`http://www.google.com/calendar/event?action=TEMPLATE&text=${encodedTitle}&dates=${encodedDates}&details=${encodedDescription}&location=${encodedLocation}`}
-    >REMIND ME</Button>
+    >REMINDER</Button>
   )
 };
 

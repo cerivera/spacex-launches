@@ -5,13 +5,13 @@ import React from 'react';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 
-const shortenText = text => {
-  return text.replace(/^(.{140}).*/, (_, m1) => {
-    return `${m1}...`;
-  });
-};
-
 class LaunchesRow extends React.Component {
+  shortenText = text => {
+    return text.replace(/^(.{140}).*/, (_, m1) => {
+      return `${m1}...`;
+    });
+  }
+
   render() {
     const { item } = this.props;
     const { links } = item;
@@ -21,14 +21,15 @@ class LaunchesRow extends React.Component {
           {(new Date(item.launch_date_utc)).toLocaleDateString()}
         </TableCell>
         <TableCell>{item.mission_name}</TableCell>
-        <TableCell>{shortenText(item.details)}</TableCell>
+        <TableCell>{this.shortenText(item.details)}</TableCell>
         <TableCell>
           {links.reddit_campaign
             ? <Button
                 size="small"
                 color="primary"
                 href={links.reddit_campaign}
-              >Reddit</Button>
+                variant="outlined"
+              >DISCUSS</Button>
             : null}
         </TableCell>
         <TableCell>
@@ -45,7 +46,8 @@ class LaunchesRow extends React.Component {
                   size="small"
                   color="secondary"
                   href={links.video_link}
-              >RECORDING</Button>
+                  variant="outlined"
+              >WATCH</Button>
           }
         </TableCell>
       </TableRow>
