@@ -23,7 +23,7 @@ const styles = theme => ({
 
 class LaunchesTable extends React.Component {
   render() {
-    const { classes, items} = this.props
+    const { classes, items} = this.props;
     return (
       <Paper className={classes.root}>
         <h2>Launches</h2>
@@ -43,13 +43,13 @@ class LaunchesTable extends React.Component {
           </TableBody>
         </Table> 
       </Paper>
-    )
+    );
   }
 }
 
 LaunchesTable.propTypes = {
   classes: PropTypes.object.isRequired,
   items: PropTypes.array.isRequired,
-}
+};
 
 export default withStyles(styles)(LaunchesTable);

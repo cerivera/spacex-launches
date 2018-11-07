@@ -8,7 +8,7 @@ class App extends Component {
     super(props);
     this.state = {
       items: [],
-    }
+    };
   }
 
   componentWillMount() {
@@ -16,18 +16,17 @@ class App extends Component {
       .then(res => {
         const items = res.data;
         this.setState({
-          // Only show launches with details
+          // Launches with details are more interesting
           items: items.filter(item => item.details)
         });
       });
   }
 
   render() {
-    const { items } = this.state;
     return (
       <div>
         <NavBar />
-        <LaunchesTable items={items} />
+        <LaunchesTable items={this.state.items} />
       </div>
     );
   }

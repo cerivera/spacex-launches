@@ -32,12 +32,12 @@ class LaunchesRow extends React.Component {
             : null}
         </TableCell>
       </TableRow>
-    )
+    );
   }
 }
 
 LaunchesRow.propTypes = {
   item: PropTypes.object.isRequired,
-}
+};
 
 export default LaunchesRow;

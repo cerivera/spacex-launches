@@ -12,7 +12,7 @@ const NavBar = () => {
         </Typography>
       </Toolbar>
     </AppBar>
-  )
+  );
 };
 
 export default NavBar;

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const padNum = (num) => num.toString().padStart(2, '0')
+const padNum = (num) => num.toString().padStart(2, '0');
 
 const getEventDates = (dateStr) => {
   // Oh ya I did.  Formatting these dates the "right" way was awful.
@@ -12,7 +12,7 @@ const getEventDates = (dateStr) => {
   })
 
   return `${startDate}/${endDate}`
-}
+};
 
 const CalendarLink = (props) => {
   const {date, description, location, title} = props;
@@ -37,14 +37,14 @@ CalendarLink.propTypes = {
 
 const GenericLink = ({link, title}) => (
   <a target="_blank" rel="noopener noreferrer" href={link}>{title}</a>
-)
+);
 
 GenericLink.propTypes = {
   link: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-}
+};
 
 export {
   CalendarLink,
   GenericLink,
-}
+};
