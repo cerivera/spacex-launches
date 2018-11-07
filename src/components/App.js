@@ -1,7 +1,8 @@
 import axios from 'axios';
-import LaunchesTable from './LaunchesTable';
 import NavBar from './NavBar';
+import PastLaunches from './PastLaunches';
 import React, { Component } from 'react';
+import UpcomingLaunches from './UpcomingLaunches';
 
 class App extends Component {
   constructor(props) {
@@ -26,8 +27,8 @@ class App extends Component {
     return (
       <div>
         <NavBar />
-        <LaunchesTable items={this.state.upcomingItems} />
-        <LaunchesTable items={this.state.pastItems} />
+        <UpcomingLaunches items={this.state.upcomingItems} />
+        <PastLaunches items={this.state.pastItems} />
       </div>
     );
   }
