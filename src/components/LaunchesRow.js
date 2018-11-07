@@ -5,6 +5,12 @@ import React from 'react';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 
+const shortenText = text => {
+  return text.replace(/^(.{140}).*/, (_, m1) => {
+    return `${m1}...`;
+  });
+};
+
 class LaunchesRow extends React.Component {
   render() {
     const { item } = this.props;
@@ -15,7 +21,7 @@ class LaunchesRow extends React.Component {
           {(new Date(item.launch_date_utc)).toLocaleDateString()}
         </TableCell>
         <TableCell>{item.mission_name}</TableCell>
-        <TableCell>{item.details}</TableCell>
+        <TableCell>{shortenText(item.details)}</TableCell>
         <TableCell>
           {links.reddit_campaign
             ? <Button
