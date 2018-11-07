@@ -17,6 +17,15 @@ class LaunchesRow extends React.Component {
         <TableCell>{item.mission_name}</TableCell>
         <TableCell>{item.details}</TableCell>
         <TableCell>
+          {links.reddit_campaign
+            ? <Button
+                size="small"
+                color="primary"
+                href={links.reddit_campaign}
+              >Reddit</Button>
+            : null}
+        </TableCell>
+        <TableCell>
           {item.upcoming
             ? <GoogleCalendarLink
                 eventStartDate={item.launch_date_utc}
@@ -25,23 +34,13 @@ class LaunchesRow extends React.Component {
                 location={item.launch_site.site_name_long}
                 title={`SpaceX Launch - ${item.mission_name}`}
               />
-            : null}
-          {links.reddit_campaign
-            ? <Button
-                size="small"
-                variant="contained"
-                color="primary"
-                href={links.reddit_campaign}
-              >DISCUSS</Button>
-            : null}
-          {links.video_link 
-           ? <Button
-                size="small"
-                variant="contained"
-                color="secondary"
-                href={links.video_link}
-             >WATCH</Button>
-            : null}
+            :
+              <Button
+                  size="small"
+                  color="secondary"
+                  href={links.video_link}
+              >RECORDING</Button>
+          }
         </TableCell>
       </TableRow>
     );
