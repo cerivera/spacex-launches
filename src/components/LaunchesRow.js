@@ -38,7 +38,7 @@ class LaunchesRow extends React.Component {
            ? <Button
                 size="small"
                 variant="contained"
-                color="primary"
+                color="secondary"
                 href={links.video_link}
              >WATCH</Button>
             : null}
