@@ -38,7 +38,7 @@ class LaunchesTable extends React.Component {
           </TableHead>
           <TableBody>
             {items.map(item => (
-              <LaunchesRow item={item} />  
+              <LaunchesRow item={item} key={item.flight_number} />
             ))}
           </TableBody>
         </Table> 
