@@ -11,7 +11,7 @@ class LaunchesRow extends React.Component {
     return (
       <TableRow key={item.flight_number}>
         <TableCell component="th" scope="row">
-          {item.launch_date_utc}
+          {(new Date(item.launch_date_utc)).toLocaleDateString()}
         </TableCell>
         <TableCell>{item.mission_name}</TableCell>
         <TableCell>{item.details}</TableCell>

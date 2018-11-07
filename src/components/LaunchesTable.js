@@ -31,7 +31,6 @@ class LaunchesTable extends React.Component {
 }
 
 LaunchesTable.propTypes = {
-  classes: PropTypes.object.isRequired,
   items: PropTypes.array.isRequired,
 };
 
