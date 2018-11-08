@@ -23,15 +23,17 @@ const GoogleCalendarLink = (props) => {
 
   return (
     <Button
+      className={props.className}
       size="small"
       variant="outlined"
-      color="default"
+      color="primary"
       href={`http://www.google.com/calendar/event?action=TEMPLATE&text=${encodedTitle}&dates=${encodedDates}&details=${encodedDescription}&location=${encodedLocation}`}
-    >REMINDER</Button>
+    >ADD TO CALENDAR</Button>
   )
 };
 
 GoogleCalendarLink.propTypes = {
+  className: PropTypes.string.isRequired,
   eventStartDate: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   durationInHours: PropTypes.number.isRequired,

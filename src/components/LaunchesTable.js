@@ -1,3 +1,5 @@
+import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Table from '@material-ui/core/Table';
@@ -7,32 +9,46 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import LaunchesRow from './LaunchesRow';
 
+const styles = theme => ({
+  root: {
+    width: '100%',
+    marginTop: theme.spacing.unit * 3,
+    overflowX: 'auto',
+  },
+  table: {
+    minWidth: 700,
+  },
+});
+
 class LaunchesTable extends React.Component {
   render() {
-    const { items} = this.props;
+    const { classes, items} = this.props;
     return (
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell>Mission</TableCell>
-            <TableCell>Details</TableCell>
-            <TableCell>Discuss</TableCell>
-            <TableCell>Watch</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {items.map(item => (
-            <LaunchesRow item={item} key={item.flight_number} />
-          ))}
-        </TableBody>
-      </Table> 
+      <Paper className={classes.root}>
+        <Table className={classes.table}>
+          <TableHead>
+            <TableRow>
+              <TableCell>Date</TableCell>
+              <TableCell>Mission</TableCell>
+              <TableCell></TableCell>
+              <TableCell></TableCell>
+              <TableCell>Details</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {items.map(item => (
+              <LaunchesRow item={item} key={item.flight_number} />
+            ))}
+          </TableBody>
+        </Table> 
+      </Paper>
     );
   }
 }
 
 LaunchesTable.propTypes = {
+  classes: PropTypes.object.isRequired,
   items: PropTypes.array.isRequired,
 };
 
-export default LaunchesTable;
+export default withStyles(styles)(LaunchesTable);

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Launches from './Launches';
+import LaunchesTable from './LaunchesTable';
 import NavBar from './NavBar';
 import React, { Component } from 'react';
 
@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <div>
         <NavBar />
-        <Launches items={this.state.items} />
+        <LaunchesTable items={this.state.items} />
       </div>
     );
   }
