@@ -7,6 +7,8 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 import LaunchesRow from './LaunchesRow';
 
 const styles = theme => ({
@@ -25,6 +27,11 @@ class LaunchesTable extends React.Component {
     const { classes, items} = this.props;
     return (
       <Paper className={classes.root}>
+        <Toolbar>
+          <Typography variant="h6" id="tableTitle">
+            Launches
+          </Typography>
+        </Toolbar>
         <Table className={classes.table}>
           <TableHead>
             <TableRow>

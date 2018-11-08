@@ -8,7 +8,7 @@ const NavBar = () => {
     <AppBar position="static" color="primary">
       <Toolbar>
         <Typography variant="title" color="inherit">
-          SpaceX Launch Tracker
+          SpaceX Tracker
         </Typography>
       </Toolbar>
     </AppBar>
