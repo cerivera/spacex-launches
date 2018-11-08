@@ -33,7 +33,7 @@ const GoogleCalendarLink = (props) => {
 };
 
 GoogleCalendarLink.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
   eventStartDate: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   durationInHours: PropTypes.number.isRequired,

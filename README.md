@@ -45,4 +45,10 @@ Dependencies should be installed/updated/removed from within the Docker containe
 
 ## Tests <a name="tests"></a>
 
-`$ docker run -it --rm spacex:latest yarn run test`
+### One-time Run
+
+`$ docker run -it --rm -v $(pwd):/app -e "CI=true" spacex:latest yarn run test`
+
+### With Hot Reloading
+
+`$ docker run -it --rm -v $(pwd):/app spacex:latest yarn run test`
