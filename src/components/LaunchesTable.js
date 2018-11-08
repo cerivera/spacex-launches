@@ -30,9 +30,8 @@ class LaunchesTable extends React.Component {
             <TableRow>
               <TableCell>Date</TableCell>
               <TableCell>Mission</TableCell>
-              <TableCell></TableCell>
-              <TableCell></TableCell>
               <TableCell>Details</TableCell>
+              <TableCell>Watch</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

@@ -8,13 +8,14 @@ import TableRow from '@material-ui/core/TableRow';
 
 const styles = theme => ({
   links: {
+    height: 30,
     minWidth: 150,
   },
   row: {
     '&:nth-of-type(odd)': {
       backgroundColor: theme.palette.background.default,
     },
-  }
+  },
 });
 
 class LaunchesRow extends React.Component {
@@ -34,6 +35,12 @@ class LaunchesRow extends React.Component {
         </TableCell>
         <TableCell>{item.mission_name}</TableCell>
         <TableCell>
+          <p>{this.shortenText(item.details)}</p>
+          {links.reddit_campaign
+            ? [<a href={links.reddit_campaign}>Read More</a>]
+            : null}
+        </TableCell>
+        <TableCell>
           {item.upcoming
             ? <GoogleCalendarLink
                 className={classes.links}
@@ -50,21 +57,9 @@ class LaunchesRow extends React.Component {
                 color="secondary"
                 href={links.video_link}
                 variant="outlined"
-              >WATCH</Button>
+              >RECORDING</Button>
           }
         </TableCell>
-        <TableCell>
-          {links.reddit_campaign
-            ? <Button
-                className={classes.links}
-                size="mini"
-                color="default"
-                href={links.reddit_campaign}
-                variant="outlined"
-              >DISCUSS</Button>
-            : null}
-        </TableCell>
-        <TableCell>{this.shortenText(item.details)}</TableCell>
       </TableRow>
     );
   }
