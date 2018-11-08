@@ -35,6 +35,7 @@ class LaunchesTable extends React.Component {
         <Table className={classes.table}>
           <TableHead>
             <TableRow>
+              <TableCell>Flight Number</TableCell>
               <TableCell>Date</TableCell>
               <TableCell>Mission</TableCell>
               <TableCell>Details</TableCell>

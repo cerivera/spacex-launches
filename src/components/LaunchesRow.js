@@ -12,6 +12,15 @@ const styles = theme => ({
       backgroundColor: theme.palette.background.default,
     },
   },
+  flight: {
+    width: 50,
+  },
+  date: {
+    minWidth: 80,
+  },
+  mission: {
+    minWidth: 80,
+  },
   link: {
     fontSize: 12,
     minWidth: 150,
@@ -33,10 +42,15 @@ class LaunchesRow extends React.Component {
     const { links } = item;
     return (
       <TableRow className={classes.row} key={item.flight_number}>
-        <TableCell component="th" scope="row">
+        <TableCell className={classes.flight}>
+          {item.flight_number}
+        </TableCell>
+        <TableCell className={classes.date} component="th" scope="row">
           {(new Date(item.launch_date_utc)).toLocaleString()}
         </TableCell>
-        <TableCell>{item.mission_name}</TableCell>
+        <TableCell className={classes.mission}>
+          {item.mission_name}
+        </TableCell>
         <TableCell>
           <p>{item.details}</p>
           {links.reddit_campaign
