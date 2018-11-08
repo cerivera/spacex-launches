@@ -7,15 +7,18 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 
 const styles = theme => ({
-  links: {
-    height: 30,
-    minWidth: 150,
-  },
   row: {
     '&:nth-of-type(odd)': {
       backgroundColor: theme.palette.background.default,
     },
   },
+  link: {
+    fontSize: 12,
+    minWidth: 150,
+  },
+  smallLink: {
+    fontSize: 10,
+  }
 });
 
 class LaunchesRow extends React.Component {
@@ -35,15 +38,21 @@ class LaunchesRow extends React.Component {
         </TableCell>
         <TableCell>{item.mission_name}</TableCell>
         <TableCell>
-          <p>{this.shortenText(item.details)}</p>
+          <p>{item.details}</p>
           {links.reddit_campaign
-            ? [<a href={links.reddit_campaign}>Read More</a>]
+            ? <Button 
+                variant="outlined"
+                color="default"
+                className={classes.smallLink}
+                size="small" 
+                href={links.reddit_campaign}
+              >READ MORE</Button>
             : null}
         </TableCell>
         <TableCell>
           {item.upcoming
             ? <GoogleCalendarLink
-                className={classes.links}
+                className={classes.link}
                 eventStartDate={item.launch_date_utc}
                 description="https://apps.cerivera.com/spacex"
                 durationInHours={2}
@@ -52,12 +61,12 @@ class LaunchesRow extends React.Component {
               />
             :
               <Button
-                className={classes.links} 
+                className={classes.link} 
                 size="small"
                 color="secondary"
                 href={links.video_link}
                 variant="outlined"
-              >RECORDING</Button>
+              >WATCH</Button>
           }
         </TableCell>
       </TableRow>

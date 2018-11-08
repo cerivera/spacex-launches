@@ -31,7 +31,7 @@ class LaunchesTable extends React.Component {
               <TableCell>Date</TableCell>
               <TableCell>Mission</TableCell>
               <TableCell>Details</TableCell>
-              <TableCell>Watch</TableCell>
+              <TableCell></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
